@@ -1,0 +1,75 @@
+@import "fonts.css";
+
+body {
+	background: #fff;
+	font-family: 'League Spartan', sans-serif;
+	letter-spacing: 0.05em;
+	color: #52524f;
+
+}
+#container {
+	background: transparent;
+	width:70%;
+	margin: 0 auto;
+	margin-top:0px;
+
+	h1 {
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		color: #9b9b9b;
+	}
+
+	.row {
+		margin:20px;
+		text-align:center;
+	}
+
+	.heading {
+		text-align:center;
+	}
+
+	#form_cont {
+		.col-xs-12 {
+			margin-bottom:15px;
+		}
+		input {
+			font-family: "Computer Modern Serif";
+			padding:14px 10px;
+			width:100%;
+			border: 1px solid #dcdcdc;
+
+			&:focus {
+				outline:none;
+				border: 1px solid #d0d291;
+			}
+		}
+		button.full {
+			width:100%;
+			border:none;
+			background:#d0d291;
+			color: #52524f;
+			text-transform: uppercase;
+			letter-spacing: 0.1em;
+			padding:14px 15px;
+
+			&:hover {
+				background:#e1e39d;
+			}
+			&:active {
+				background:#eef0a6;
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	#container {
+		.row {
+			text-align:left;
+
+			&.heading {
+				text-align:center;
+			}
+		}
+	}
+}

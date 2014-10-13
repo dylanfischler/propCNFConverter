@@ -1,0 +1,49 @@
+@import url(fonts.css);
+body {
+  background: #fff;
+  font-family: 'League Spartan', sans-serif;
+  letter-spacing: 0.05em;
+  color: #52524f; }
+
+#container {
+  background: transparent;
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 0px; }
+  #container h1 {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #9b9b9b; }
+  #container .row {
+    margin: 20px;
+    text-align: center; }
+  #container .heading {
+    text-align: center; }
+  #container #form_cont .col-xs-12 {
+    margin-bottom: 15px; }
+  #container #form_cont input {
+    font-family: "Computer Modern Serif";
+    padding: 14px 10px;
+    width: 100%;
+    border: 1px solid #dcdcdc; }
+    #container #form_cont input:focus {
+      outline: none;
+      border: 1px solid #d0d291; }
+  #container #form_cont button.full {
+    width: 100%;
+    border: none;
+    background: #d0d291;
+    color: #52524f;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 14px 15px; }
+    #container #form_cont button.full:hover {
+      background: #e1e39d; }
+    #container #form_cont button.full:active {
+      background: #eef0a6; }
+
+@media only screen and (min-width: 768px) {
+  #container .row {
+    text-align: left; }
+    #container .row.heading {
+      text-align: center; } }

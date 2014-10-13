@@ -1,0 +1,3 @@
+symbolRef = {
+	'IMPLIES': ['->', '→']
+}
