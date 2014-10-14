@@ -41,6 +41,16 @@ body {
       background: #e1e39d; }
     #container #form_cont button.full:active {
       background: #eef0a6; }
+  #container #converted {
+    margin: 55px; }
+    #container #converted input {
+      font-family: "Computer Modern Serif";
+      padding: 14px 10px;
+      width: 100%;
+      border: 1px solid #dcdcdc; }
+      #container #converted input:focus {
+        outline: none;
+        border: 1px solid #d0d291; }
 
 @media only screen and (min-width: 768px) {
   #container .row {

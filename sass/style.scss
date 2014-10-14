@@ -60,6 +60,21 @@ body {
 			}
 		}
 	}
+	#converted {
+		margin:55px;
+
+		input {
+			font-family: "Computer Modern Serif";
+			padding:14px 10px;
+			width:100%;
+			border: 1px solid #dcdcdc;
+
+			&:focus {
+				outline:none;
+				border: 1px solid #d0d291;
+			}
+		}
+	}
 }
 
 @media only screen and (min-width: 768px) {
