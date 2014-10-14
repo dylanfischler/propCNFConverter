@@ -10,16 +10,11 @@ symbolRef = {
 
 symbolRef = {
 	'->': 'IMPLIES',
-	//'→': 'IMPLIES',
 	'xor': 'BICON',
-	//'⊕': 'BICON',
 	'<->': 'BIDIR',
-	//'↔': 'BIDIR',
 	'/\\': 'AND',
-	//'∧': 'AND',
 	'^': 'AND',
 	'\//': 'OR',
 	'∨': 'OR',
-	'-': '-'
-	//'⌙': '-'
+	'-': '-' 
 }

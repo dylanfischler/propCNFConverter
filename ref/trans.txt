@@ -1,0 +1,19 @@
+abbreviations:
+a IMPLIES b --> -a OR b
+--a --> a
+a BIDIR b --> (a IMPLIES b) AND (b IMPLIES a)
+a BICON b --> (a OR b) AND (-a OR -b)
+
+//demorgans
+-(a AND b) --> -a OR -b
+-(a OR b) --> -a AND -b
+
+//distributive
+a AND (b OR c) --> (a AND b) OR (a AND c)
+a OR (b AND c) --> (a OR b) AND (a OR c)
+
+//redundant 
+a OR a --> a
+a AND a --> a
+a AND T --> a
+a OR F --> a
