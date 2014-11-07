@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	//(p↔q) ↔ (p⊕q)
+	//(p <-> q) <-> (p xor q)
 	//[((p∧q)∨(¬p∧¬q))∧((p∧¬q)∨(¬p∧q))] ∨ [(¬p∨¬q)∧(p∨q))∧((¬p∨q)∧(p∨¬q))]
 });
 
@@ -55,18 +55,30 @@ Formula.prototype.generalize = function(){
 	this.propForm = parsedForm;
 };
 
+//adding some stack implementation
+Array.prototype.peek = function(){
+	if(this.length<1) return null;
+	else return this[this.length-1]
+}
+Array.prototype.clean = function(deleteValue) {
+  for (var i = 0; i < this.length; i++) {
+    if (this[i] == deleteValue) {         
+      this.splice(i, 1);
+      i--;
+    }
+  }
+  return this;
+};
+
 Formula.prototype.tokenize = function(){
 	//token stack
 	var tokens = new Array();
 
-	var theStack = new Array();
-	var theQueue = new Queue();
-
 	var formTokens = this.propForm.split(' ');
-
+	var tokens = [];
+	//fix any sticky parentheses 
 	for(var i = 0; i < formTokens.length; i++){
 		var curr = formTokens[i];
-
 		/* Checking for sticky parentheses */
 		if(curr.indexOf("(")>-1 && curr.length > 1){
 			//open paran must be first element of token
@@ -75,34 +87,53 @@ Formula.prototype.tokenize = function(){
 				return;
 			}
 			//insert rest of token as a new token to parse
-			formTokens.splice(i+1, 0, curr.substring(1, curr.length-1));
+			tokens.push("(");
+			tokens.push(curr.substring(1, curr.length));
 		}
-		if(curr.indexOf(")")>-1 && curr.length > 1){
+		else if(curr.indexOf(")")>-1 && curr.length > 1){
 			//close paran must be last element of token
 			if(curr.indexOf(")")!=curr.length-1){
 				console.log("Invalid spacing");
 				return;
 			}
 			//insert rest of token as a new token to parse
-			formTokens.splice(i+1, 0, curr.substring(0, curr.length-2));
+			tokens.push(curr.substring(0, curr.length-1));
+			tokens.push(")");
+			
 		}
+		else tokens.push(curr);
+	}
 
-		console.log(curr);
-		//operator
-		if(ordOper.indexOf(curr) > -1){
+	console.log(tokens);
 
+	var theStack = []
+	var paranMem = []
+
+	// var theQueue = new Queue();
+
+	for(var i = 0; i < tokens.length; i++){
+		var curr = tokens[i];
+
+		// console.log(curr);
+		if(curr=="("){
+			console.log("opening paran");
+			theStack.push(curr);
+			paranMem.push(curr)
+			console.log(theStack);
 		}
-		else if(curr=="("){theStack.push(curr);}
 		else if(curr==")"){
 			while(theStack.peek() != "("){
 				if(theStack.length > 0){
-					theQueue.enqueue(theStack.pop());
+					// theQueue.enqueue(theStack.pop());
+					theStack.clean(undefined);
 				}
 				else {console.log("paran match error"); return;};
 				
 			}
 			theStack.pop();
+			theStack.clean(undefined);
 		}
+		else paranMem.push(curr);
 
 
 
@@ -117,7 +148,7 @@ Formula.prototype.tokenize = function(){
 	}
 
 	console.log(theStack);
-	console.log(theQueue);
+	// console.log(theQueue);
 
 }
 

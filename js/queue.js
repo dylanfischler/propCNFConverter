@@ -1,27 +1,24 @@
-//Sacket stackoverflow 
-Queue: function(){
+// //Sacket stackoverflow 
+// var Queue = function(){
+// 	this.items;
+// }
 
-    var items;
+// Queue.prototype.enqueue = function(item){
+// 	if(typeof(this.items) === 'undefined'){
+//         this.items = [];   
+//     }
+//     this.items.push(item);
+// }
+// Queue.prototype.dequeue = function(){
+//     return this.items.shift();                                                
+// }
 
-    this.enqueue = function(item){
-        if(typeof(items) === 'undefined'){
-            items = [];   
-        }
-        items.push(item);                       
-    }
-
-    this.dequeue = function(){
-        return items.shift();                                                
-    }
-
-    this.peek = function(){
-        return items[0];                  
-    }
-    this.toString = function(){
-    	return items.toString;
-    }
-    this.length = function(){
-    	return items.length;
-    }
-
-}
+// Queue.prototype.peek = function(){
+//     return this.items[0];                  
+// }
+// Queue.prototype.toString = function(){
+// 	return this.items.toString;
+// }
+// Queue.prototype.length = function(){
+// 	return this.items.length;
+// }
