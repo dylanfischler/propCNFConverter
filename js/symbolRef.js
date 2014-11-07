@@ -1,20 +1,14 @@
-/* Old Format -- not easy to parse with
-symbolRef = {
-	'IMPLIES': ['->', '→'],
-	'BICON': ['xor','⊕'],
-	'BIDIR': ['<->', '↔'],
-	'OR': ['\//','∨'],
-	'AND': ['//\\','∧'],
-	'-': ['-','⌙']
-}*/
-
+//General Symbol References
 symbolRef = {
 	'->': 'IMPLIES',
 	'xor': 'BICON',
 	'<->': 'BIDIR',
 	'/\\': 'AND',
 	'^': 'AND',
-	'\//': 'OR',
+	'\\/': 'OR',
 	'∨': 'OR',
 	'-': '-' 
 }
+
+//Propositional Operator Precedence
+ordOper = ['-','AND','OR','IMPLIES','BIDIR','BICON'];
