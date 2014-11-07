@@ -21,12 +21,13 @@ Formula.prototype.generalize = function(){
 	var parsedForm = "";
 	//perhaps filter the elements and the ^ V || -> <-> 
 	//seperate lists of them
-	var operators = /*list of Strings/charactors ^ || V */  
-	var operands = /* list of Strings IN ORDER */ 
+	var operators = ''/*list of Strings/charactors ^ || V */  
+	var operands = ""/* list of Strings IN ORDER */ 
 	for(var i = 0; i< formTokens.length; i++){
-		if(formTokens[i] == '^' || formTokens[i] == '||' || 
-			formTokens[i] == 'v' || formTokens[i] == 'V' || 
-			formTokens[i] == '&&' || formTokens[i] == '->' ||
+		if(formTokens[i] == '^' || //formTokens[i] == '||' || 
+			formTokens[i] == 'v' || //formTokens[i] == 'V' || 
+			//formTokens[i] == '&' || 
+			formTokens[i] == '->' ||
 			formTokens[i] == '<->' || formTokens[i] == '(+)')
 			operators += formTokens[i]
 		else operands+= formTokens[i]
@@ -40,9 +41,23 @@ Formula.prototype.generalize = function(){
 			if(i!=formTokens.length-1) parsedForm += " ";
 		}
 		else {
-			parsedForm += formTokens[i]; 
-			if(i!=formTokens.length-1) parsedForm += " ";
+			parsedForm += formTokens[i];
+ 			if(i!=formTokens.length-1) parsedForm += " ";
 		}
+	}
+	//my stab
+	//////////////////////////////////////////////////////////// 
+	//adding '-' to the front of predicates wher needed
+	// and negating operators when needed
+	for(var i = 0; i < operators.length; i++){
+		if(operators[i] == '->'){
+			operands[i] = "-"+operands[i]
+			operators[i] == 'v'
+		}
+		else if(operators[i] == )
+
+
+
 	} 
 		
 	this.propForm = parsedForm;
