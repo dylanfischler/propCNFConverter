@@ -151,4 +151,3 @@ Formula.prototype.tokenize = function(){
 	// console.log(theQueue);
 
 }
-
